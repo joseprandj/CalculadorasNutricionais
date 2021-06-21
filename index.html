@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="./assets/TitleIcon.svg">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+    <nav>
+
+        <section id="menuMobile">
+
+           <input type="checkbox" id="check-menu">
+           <label for="check-menu">
+               <span></span>
+               <span></span>
+               <span></span>
+           </label>
+
+           <div id="menu-block">
+                <div id="menu-block-title">
+                    <h1>Nutrição</h1>
+                    <p>Controle sua Saúde</p>
+                </div>
+
+                <ul id="menu-block-items">
+                    <li> <a href="./index.html">Home</a> </li>
+                    <li> <a href="#imc">Calculadora IMC</a> </li>
+                    <li> <a href="#tmb">Calculadora TMB</a> </li>
+                    <li> <a href="#fatAtv">Calculadora FAT</a> </li>
+                    <li> <a href="#get">Calculadora GET</a> </li>
+                    <li> <a href="#h2o">Calculadora Ingestão Hídrica</a> </li>
+                </ul>
+
+                <div id="menu-block-footer">
+                    <a href="mailto:Juniorj53@gmail.com" class="fa fa-google"></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/joseprandj/" class="fa fa-linkedin"></a>
+                    <a target="_blank" href="https://github.com/joseprandj" class="fa fa-github"></a>
+                    <a target="_blank" href="https://joseprandj.github.io/CurriculoPortifolio/" class="fa fa-address-card"></a>
+
+                    <h1>© Copyright 2021 - joseprandj <br> Todos os direitos reservados.</h1>
+                </div>
+
+             </div>
+
+        </section>
+
+    </nav>
+
+    <header>
+        <div>
+            <h1>Controle sua Saúde</h1>
+            <h2>Descubra e calcule as recomendações necessárias para manutenção da sua saúde</h2>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="imc" class="containerSection">
+            
+            <div class="containerText">
+                <h1>O que é IMC ?</h1>
+                <p>O Índice de Massa Corporal (IMC), é um cálculo simples, fácil e rápido adotado pela Organização Mundial da Saúde (OMS) como referência internacional de obesidade, o seu resultado tem o objetivo mostra a <strong>avaliação do nível de gordura corporal</strong> de cada pessoa.</p>
+            </div>
+
+            <div class="containerCalc">
+                <h2>Calcule seu IMC</h2>
+                <h3>Peso</h3>
+                <input type="number" id="peso" step="0.01" placeholder="Peso em Kg">
+                
+                <h3>Altura</h3>
+                <input type="number" id="altura" step="0.01" placeholder="Altura em Metros">
+
+                <button onclick="calcIMC()">Calcular</button>
+
+                <div id="resultIMC" class="resultCalcs">
+                    <!-- Cálculo Inserido pelo JavaScript -->
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="tmb" class="containerSection">
+
+            <div class="containerText">
+                <h1>O que é TMB ?</h1>
+                <p>A Taxa Metáboilica Basal (TMB), é o <strong>mínimo de calórias necesárias para manter as funções do organismo em repouso</strong>, como os batimentos cardíacos, a pressão arterial, a respiração e a manutenção da temperatura corporal.</p>
+            </div>
+
+            <div class="containerCalc">
+                <h2>Calcule sua TMB</h2>
+                <h4>Referência utilizada para o Cálculo: FAO,1985</h4>
+                <h3>Faixa Etária</h3>
+                <select id="idade"> 
+                    <option selected value="crianca1">0 - 3 Anos</option>
+                    <option value="crianca2">3 - 10 Anos</option>
+                    <option value="adolescente">10 - 18 Anos</option>
+                    <option value="adulto1">18 - 30 Anos</option>
+                    <option value="adulto2">30 - 60 Anos</option>
+                    <option value="idoso">&gt 60 Anos</option>
+                </select>
+
+                <h3>Sexo</h3>
+                <select id="sexo"> 
+                    <option value="F">Femino</option>
+                    <option selected value="M">Masculino</option>
+                </select>
+
+                <h3>Peso</h3>
+                <input type="number" id="pesoTMB" step="0.01" placeholder="Peso em Kg">
+
+                <button onclick="calcTMB()">Calcular</button>
+
+
+                <div id="resultTMB" class="resultCalcs">
+                    <!-- Cálculo Inserido pelo JavaScript -->
+                </div>
+
+            </div>
+
+        </section>
+        
+        <section id="fatAtv" class="containerSection">
+            
+            <div class="containerText">
+                <h1>O que é FAT ?</h1>
+                <p>O Fator Atividade (FAT), é o cálculo realizado para avaliar a <strong>intensidade e duração dos exércicios</strong> que cada pessoa realiza durante o dia, ou seja, uma pessoa que realiza um percurso caminhando tem uma intensidade menor do que a pessoa que está correndo.
+                <p>Portanto, conhecer como você realiza suas atividades durante o dia é <strong>muito importante</strong>, pois esse resultado influência de forma significativa em sua <strong>dieta</strong>, já que o cálculo é baseado em todas atividades realizadas durante o dia</p>
+            </p>
+            </div>
+
+            <div class="containerCalc">
+                <h2>Calcule seu FAT</h2>
+                <h4>Fator de Atividade utilizado para o Cálculo: FAO,1985</h4>
+
+                <div>
+                    <h3>Atividade Física</h3>
+                    <input type="text" id="nameAtf" placeholder="Ex: Correr, Treinar, Dormir">
+                </div>
+
+                <div>
+                    <h3>Quantas Horas</h3>
+                    <input type="number" id="timeAtf" step="0.01" placeholder="Ex: 8, 1.5(1h:30m)">
+                </div>
+
+                <div>
+                    <h3>Intensidade</h3>
+                    <select id="intenseAtf">
+                        <option selected value=1>Repouso (Dormir)</option>
+                        <option value=1.5>Muito Leve (Caminhada)</option>
+                        <option value=2.5>Leve (Corrida)</option>
+                        <option value=5>Moderada (Treino)</option>
+                        <option value=7>Intensa (Treino de Atleta)</option>
+                    </select>
+                </div>
+
+                <button onclick="addItemList()">Adicionar a Lista</button>
+
+                <div id="tableErro"></div>
+
+                <table id="tableAtf">
+                    <tr>
+                        <th>Atividade Física</th>
+                        <th>Horas Gasta</th>
+                        <th>Intensidade</th>
+                        <th></th>
+                    </tr>
+                </table>
+
+                <button onclick="calcFat()">Calcular</button>
+
+                <div id="resultAtf" class="resultCalcs">
+                    <!-- Cálculo Inserido pelo JavaScript -->
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="get" class="containerSection">
+
+            <div class="containerText">
+                <h1>O que é GET ou VET ?</h1>
+                <p>Gasto Energético Total (GET) ou Valor Energético Total (VET), é o cálculo utilizado para identificar as <strong>calorias diárias que o seu corpo necessita</strong>, para isso é necessário saber sua Taxa Metabólica Basal (TMB) e o seu Fator Atividade (FAT).</p>
+            </div>
+
+            <div class="containerCalc">
+                <h2>Calcule seu GET</h2>
+                <h4>Utilize as calculadora de TMB e FAT para obter os dados</h4>
+
+                <div>
+                    <h3>TMB</h3>
+                    <input id="getTMB" type="number" placeholder="Digite a TMB">
+                </div>
+
+                <div>
+                    <h3>FAT</h3>
+                    <input id="getFAT" type="number" placeholder="Digite o FAT">
+                </div>
+
+                <button onclick="calcGET()">Calcular</button>
+
+                <div id="resultGET" class="resultCalcs">
+                <!-- Cálculo Inserido pelo JavaScript -->
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="h2o" class="containerSection">
+
+            <div class="containerText">
+                <h1>Ingestão Hídrica?</h1>
+                <p> Sabemos que o corpo humano é composto por certa de 70% de água, portanto a ingestão correta da quantidade água que o nosso corpo necessita é de extrema importância, pois ela traz benefícios a saúde, auxiliando o corpo filtrar as sujidades, regular processos bioquímicos e outros relacionados com a temperatura, transportando ainda substâncias.</p>
+                <br>
+                <p><strong>Lembre-se:</strong> Tudo em excesso é prejudicial, e consumir mais água do que o indicado pode ter efeitos negativos a saúde, principalmente para quem tem doenças cardíacas ou renais, pois o  organismo não consegue eliminar o excesso de água, podendo provocar inchaço no corpo todo, dificuldade para respirar, aumento da pressão arterial, desequilíbrio dos minerais na corrente sanguínea e sobrecarga dos rins.</p>
+            </div>
+
+            <div class="containerCalc">
+                <h2>Calcule sua Ingestão Hídrica</h2>
+                <h4>Referência utilizada para o Cálculo: 35ml/Kg</h4>
+
+                <h3>Peso</h3>
+                <input type="number" id="pesoH2O" step="0.01" placeholder="Peso em Kg">
+                <button onclick="calcH2O()">Calcular</button>
+
+                <div id="resultH2O" class="resultCalcs">
+                    <!-- Cálculo Inserido pelo JavaScript -->
+                </div>
+            </div>
+            
+        </section>
+
+    </main>
+
+    <footer>
+        <section onclick="backTop()" id="backTop">
+            <img src="./assets/up-arrow.svg">
+        </section>
+    </footer>
+
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
