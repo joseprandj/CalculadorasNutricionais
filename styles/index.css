@@ -326,9 +326,9 @@ main{
     display: flex;
     bottom: 0;
     right: 0;
-    padding: .2rem;
-    margin: 0.2rem 0.2rem;
     border-radius: 50%;
+    padding: 1%;
+    cursor: pointer;
 }
 
 #backTop img{
