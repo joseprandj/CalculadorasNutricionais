@@ -332,7 +332,8 @@ main{
 }
 
 #backTop img{
-    height: 2.5rem;
+    height: min(40px, 2.5rem);
+    width: min(40px, 2.5rem);
 }
 
 
