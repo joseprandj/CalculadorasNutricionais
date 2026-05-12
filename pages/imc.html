@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculadora IMC</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-slate-100 min-h-screen">
+
+    <!-- HEADER -->
+    <div id="navbar"></div>
+
+    <!-- MAIN -->
+    <main class="max-w-6xl mx-auto px-6 py-20">
+
+        <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+            <!-- CARD EXPLICAÇÃO -->
+            <section class="bg-white rounded-3xl shadow-xl p-10">
+
+                <div class="flex items-center gap-4 mb-8">
+
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-3xl">
+                        ⚖️
+                    </div>
+
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-800">
+                            Índice de Massa Corporal
+                        </h2>
+
+                        <p class="text-slate-500">
+                            Avaliação corporal
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="space-y-6 text-slate-600 leading-relaxed">
+
+                    <p>
+                        O IMC é um cálculo utilizado para avaliar se uma pessoa está dentro do peso ideal em relação à
+                        altura.
+                    </p>
+
+                    <p>
+                        O resultado ajuda a identificar possíveis níveis de magreza, sobrepeso e obesidade.
+                    </p>
+
+                    <p>
+                        Apesar de ser amplamente utilizado, o IMC não considera composição corporal como massa muscular.
+                    </p>
+
+                </div>
+
+                <!-- TABELA -->
+                <div class="mt-10 overflow-hidden rounded-2xl border border-slate-200">
+
+                    <table class="w-full">
+
+                        <thead class="bg-orange-500 text-white">
+
+                            <tr>
+                                <th class="p-4 text-left">IMC</th>
+                                <th class="p-4 text-left">Classificação</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="divide-y divide-slate-200">
+
+                            <tr class="bg-white">
+                                <td class="p-4">Menor que 18.5</td>
+                                <td class="p-4">Abaixo do peso</td>
+                            </tr>
+
+                            <tr class="bg-slate-50">
+                                <td class="p-4">18.5 até 24.9</td>
+                                <td class="p-4">Peso normal</td>
+                            </tr>
+
+                            <tr class="bg-white">
+                                <td class="p-4">25 até 29.9</td>
+                                <td class="p-4">Sobrepeso</td>
+                            </tr>
+
+                            <tr class="bg-slate-50">
+                                <td class="p-4">30 até 34.9</td>
+                                <td class="p-4">Obesidade I</td>
+                            </tr>
+
+                            <tr class="bg-white">
+                                <td class="p-4">35 até 39.9</td>
+                                <td class="p-4">Obesidade II</td>
+                            </tr>
+
+                            <tr class="bg-slate-50">
+                                <td class="p-4">Maior que 40</td>
+                                <td class="p-4">Obesidade III</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- CARD CALCULADORA -->
+            <section class="bg-white rounded-3xl shadow-xl p-10 sticky top-10">
+
+                <h2 class="text-4xl font-bold text-slate-800 mb-3">
+                    Calcule seu IMC
+                </h2>
+
+                <p class="text-slate-500 mb-10">
+                    Preencha os dados abaixo.
+                </p>
+
+                <!-- FORM -->
+                <div class="space-y-6">
+
+                    <!-- PESO -->
+                    <div>
+
+                        <label class="block mb-2 font-semibold text-slate-700">
+                            Peso (kg)
+                        </label>
+
+                        <input id="peso" type="text" placeholder="Ex: 80.50"
+                            class="w-full border border-slate-300 rounded-2xl px-4 py-4 focus:outline-none focus:ring-4 focus:ring-orange-300">
+
+                    </div>
+
+                    <!-- ALTURA -->
+                    <div>
+
+                        <label class="block mb-2 font-semibold text-slate-700">
+                            Altura (m)
+                        </label>
+
+                        <input id="altura" type="text" placeholder="Ex: 1.80"
+                            class="w-full border border-slate-300 rounded-2xl px-4 py-4 focus:outline-none focus:ring-4 focus:ring-orange-300">
+
+                    </div>
+
+                </div>
+
+                <!-- BOTÃO -->
+                <button onclick="calcIMC()"
+                    class="w-full mt-8 bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-2xl font-bold text-lg transition duration-300">
+                    Calcular IMC
+                </button>
+
+                <!-- RESULTADO -->
+                <div id="resultado" class="mt-8 bg-slate-100 rounded-2xl p-6 min-h-[120px] flex items-center">
+
+                    <p class="text-slate-500">
+                        Seu resultado aparecerá aqui.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../js/utils/masks.js"></script>
+    <script src="../js/utils/storage.js"></script>
+    <script src="../js/imc.js"></script>
+
+    <div id="footer"></div>
+
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/footer.js"></script>
+
+    <script>
+
+        document.getElementById("navbar").innerHTML =
+            createNavbar("Calculadora IMC");
+
+        document.getElementById("footer").innerHTML =
+            createFooter();
+
+    </script>
+
+</body>
+
+</html>

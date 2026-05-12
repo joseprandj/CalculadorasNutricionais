@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calculadora TMB</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-slate-100 min-h-screen">
+
+  <!-- NAVBAR -->
+  <div id="navbar"></div>
+
+  <!-- MAIN -->
+  <main class="max-w-6xl mx-auto px-6 py-20">
+
+    <div class="grid lg:grid-cols-2 gap-10">
+
+      <!-- EXPLICAÇÃO -->
+      <section class="bg-white rounded-3xl shadow-xl p-10">
+
+        <div class="flex items-center gap-4 mb-8">
+
+          <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-3xl">
+            🔥
+          </div>
+
+          <div>
+
+            <h2 class="text-3xl font-bold text-slate-800">
+              Taxa Metabólica Basal
+            </h2>
+
+            <p class="text-slate-500">
+              Gasto energético em repouso
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="space-y-6 text-slate-600 leading-relaxed">
+
+          <p>
+            A TMB representa a quantidade mínima de calorias que o corpo necessita para manter funções vitais em
+            repouso.
+          </p>
+
+          <p>
+            Esse cálculo ajuda nutricionistas e profissionais da saúde a montarem estratégias de dieta e emagrecimento.
+          </p>
+
+          <p>
+            O cálculo utilizado neste projeto segue a referência da FAO/OMS.
+          </p>
+
+        </div>
+
+        <!-- INFO -->
+        <div class="mt-10 bg-red-50 border border-red-100 rounded-2xl p-6">
+
+          <h3 class="font-bold text-red-500 mb-3">
+            Fórmula utilizada
+          </h3>
+
+          <p class="text-slate-600">
+            FAO/OMS 1985
+          </p>
+
+        </div>
+
+      </section>
+
+      <!-- CALCULADORA -->
+      <section class="bg-white rounded-3xl shadow-xl p-10 sticky top-10">
+
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Calcule sua TMB
+        </h2>
+
+        <p class="text-slate-500 mb-10">
+          Preencha os dados abaixo.
+        </p>
+
+        <div class="space-y-6">
+
+          <!-- IDADE -->
+          <div>
+
+            <label class="block mb-2 font-semibold text-slate-700">
+              Faixa Etária
+            </label>
+
+            <select id="idade"
+              class="w-full border border-slate-300 rounded-2xl px-4 py-4 bg-white focus:outline-none focus:ring-4 focus:ring-red-300">
+              <option value="crianca1">0 - 3 anos</option>
+              <option value="crianca2">3 - 10 anos</option>
+              <option value="adolescente">10 - 18 anos</option>
+              <option value="adulto1">18 - 30 anos</option>
+              <option value="adulto2">30 - 60 anos</option>
+              <option value="idoso">60+ anos</option>
+            </select>
+
+          </div>
+
+          <!-- SEXO -->
+          <div>
+
+            <label class="block mb-2 font-semibold text-slate-700">
+              Sexo
+            </label>
+
+            <select id="sexo"
+              class="w-full border border-slate-300 rounded-2xl px-4 py-4 bg-white focus:outline-none focus:ring-4 focus:ring-red-300">
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+            </select>
+
+          </div>
+
+          <!-- PESO -->
+          <div>
+
+            <label class="block mb-2 font-semibold text-slate-700">
+              Peso (kg)
+            </label>
+
+            <input id="peso" type="text" placeholder="Ex: 80.50"
+              class="w-full border border-slate-300 rounded-2xl px-4 py-4 focus:outline-none focus:ring-4 focus:ring-red-300">
+
+          </div>
+
+        </div>
+
+        <!-- BOTÃO -->
+        <button onclick="calcTMB()"
+          class="w-full mt-8 bg-red-500 hover:bg-red-600 text-white py-4 rounded-2xl font-bold text-lg transition duration-300">
+          Calcular TMB
+        </button>
+
+        <!-- RESULTADO -->
+        <div id="resultado" class="mt-8 bg-slate-100 rounded-2xl p-6 min-h-[120px] flex items-center">
+
+          <p class="text-slate-500">
+            Seu resultado aparecerá aqui.
+          </p>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <!-- COMPONENTS -->
+  <script src="../js/components/navbar.js"></script>
+  <script src="../js/components/footer.js"></script>
+
+  <!-- JS -->
+  <script src="../js/utils/masks.js"></script>
+  <script src="../js/utils/storage.js"></script>
+  <script src="../js/tmb.js"></script>
+
+  <script>
+
+    document.getElementById("navbar").innerHTML =
+      createNavbar("Calculadora TMB");
+
+    document.getElementById("footer").innerHTML =
+      createFooter();
+
+  </script>
+
+</body>
+
+</html>

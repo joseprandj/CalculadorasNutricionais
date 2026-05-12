@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calculadora H2O</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-slate-100 min-h-screen">
+
+  <!-- NAVBAR -->
+  <div id="navbar"></div>
+
+  <!-- MAIN -->
+  <main class="max-w-7xl mx-auto px-6 py-20">
+
+    <div class="grid lg:grid-cols-2 gap-10">
+
+      <!-- EXPLICAÇÃO -->
+      <section class="bg-white rounded-3xl shadow-xl p-10">
+
+        <div class="flex items-center gap-4 mb-8">
+
+          <div class="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center text-3xl">
+            💧
+          </div>
+
+          <div>
+
+            <h2 class="text-3xl font-bold text-slate-800">
+              Ingestão Hídrica
+            </h2>
+
+            <p class="text-slate-500">
+              Consumo diário de água
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="space-y-6 text-slate-600 leading-relaxed">
+
+          <p>
+            A hidratação adequada é essencial para o funcionamento correto do organismo.
+          </p>
+
+          <p>
+            O cálculo utilizado considera aproximadamente 35ml de água por kg corporal.
+          </p>
+
+          <p>
+            A ingestão ideal pode variar conforme clima, atividade física e condições de saúde.
+          </p>
+
+        </div>
+
+        <!-- INFO -->
+        <div class="mt-10 bg-cyan-50 border border-cyan-100 rounded-2xl p-6">
+
+          <h3 class="font-bold text-cyan-600 mb-3">
+            Recomendação utilizada
+          </h3>
+
+          <p class="text-slate-600">
+            35ml por kg corporal
+          </p>
+
+        </div>
+
+      </section>
+
+      <!-- CALCULADORA -->
+      <section class="bg-white rounded-3xl shadow-xl p-10 sticky top-10">
+
+        <h2 class="text-4xl font-bold text-slate-800 mb-3">
+          Calcule sua Hidratação
+        </h2>
+
+        <p class="text-slate-500 mb-10">
+          Informe seu peso corporal.
+        </p>
+
+        <!-- INPUT -->
+        <div>
+
+          <label class="block mb-2 font-semibold text-slate-700">
+            Peso (kg)
+          </label>
+
+          <input id="peso" type="number" step="0.01" placeholder="Ex: 80"
+            class="w-full border border-slate-300 rounded-2xl px-4 py-4 focus:outline-none focus:ring-4 focus:ring-cyan-300">
+
+        </div>
+
+        <!-- BOTÃO -->
+        <button onclick="calcularH2O()"
+          class="w-full mt-8 bg-cyan-500 hover:bg-cyan-600 text-white py-4 rounded-2xl font-bold text-lg transition">
+          Calcular Hidratação
+        </button>
+
+        <!-- RESULTADO -->
+        <div id="resultado" class="mt-8">
+
+          <div class="bg-slate-100 rounded-2xl p-6">
+
+            <p class="text-slate-500">
+              Seu resultado aparecerá aqui.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <!-- COMPONENTS -->
+  <script src="../js/components/navbar.js"></script>
+  <script src="../js/components/footer.js"></script>
+
+  <!-- JS -->
+  <script src="../js/utils/masks.js"></script>
+  <script src="../js/utils/storage.js"></script>
+  <script src="../js/h2o.js"></script>
+
+  <script>
+
+    document.getElementById("navbar").innerHTML =
+      createNavbar("Calculadora H2O");
+
+    document.getElementById("footer").innerHTML =
+      createFooter();
+
+  </script>
+
+</body>
+
+</html>
