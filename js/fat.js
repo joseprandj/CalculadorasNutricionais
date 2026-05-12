@@ -3,12 +3,36 @@ let atividades = [];
 // ADICIONAR
 function adicionarAtividade() {
 
-  const atividade = document.getElementById("atividade").value;
-  const horas = Number(document.getElementById("horas").value);
-  const intensidade = Number(document.getElementById("intensidade").value);
+  const atividade =
+    document.getElementById("atividade").value;
+
+  const horas = Number(
+    document.getElementById("horas").value
+  );
+
+  const intensidade = Number(
+    document.getElementById("intensidade").value
+  );
 
   // VALIDAÇÃO
   if (!atividade || horas <= 0) {
+    return;
+  }
+
+  // SOMA HORAS
+  const totalHoras = atividades.reduce((total, item) => {
+
+    return total + item.horas;
+
+  }, 0);
+
+  // VALIDA LIMITE
+  if ((totalHoras + horas) > 24) {
+
+    alert(
+      "O total de atividades não pode ultrapassar 24 horas."
+    );
+
     return;
   }
 
@@ -19,28 +43,13 @@ function adicionarAtividade() {
     intensidade
   };
 
-  // SOMA HORAS ATUAIS
-  const totalHoras = atividades.reduce((total, item) => {
-
-    return total + item.horas;
-
-  }, 0);
-
-  // VALIDA SE PASSA DE 24H
-  if ((totalHoras + horas) > 24) {
-
-    alert("O total de atividades não pode ultrapassar 24 horas.");
-
-    return;
-  }
-
-  // ARRAY
+  // ADICIONA
   atividades.push(novaAtividade);
 
   // RENDERIZA
   renderizarTabela();
 
-  // LIMPA INPUTS
+  // LIMPA
   document.getElementById("atividade").value = "";
   document.getElementById("horas").value = "";
 }
@@ -53,38 +62,72 @@ function removerAtividade(index) {
   renderizarTabela();
 }
 
-// RENDERIZAR
+// RENDERIZA TABELA
 function renderizarTabela() {
 
-  const tabela = document.getElementById("tabelaAtividades");
+  const tabela =
+    document.getElementById("tabelaAtividades");
 
+  const colunaAcao =
+    document.getElementById("colunaAcao");
+
+  // LIMPA
   tabela.innerHTML = "";
 
+  // SEM REGISTROS
+  if (atividades.length === 0) {
+
+    colunaAcao.classList.add("hidden");
+
+    tabela.innerHTML = `
+
+      <tr>
+
+        <td
+          colspan="4"
+          class="p-6 text-center text-slate-400"
+        >
+
+          Nenhuma atividade adicionada.
+
+        </td>
+
+      </tr>
+
+    `;
+
+    return;
+  }
+
+  // MOSTRA COLUNA
+  colunaAcao.classList.remove("hidden");
+
+  // RENDERIZA
   atividades.forEach((item, index) => {
 
     tabela.innerHTML += `
 
       <tr class="bg-white">
 
-        <td class="p-4">
+        <td class="p-3 text-sm md:text-base">
           ${item.atividade}
         </td>
 
-        <td class="p-4">
+        <td class="p-3 text-sm md:text-base">
           ${item.horas}h
         </td>
 
-        <td class="p-4">
+        <td class="p-3 text-sm md:text-base">
           ${item.intensidade}
         </td>
 
-        <td class="p-4 text-center">
+        <td class="p-3 text-center">
 
           <button
             onclick="removerAtividade(${index})"
-            class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl transition"
+            class="text-red-500 hover:text-red-600 transition text-xl"
           >
-            Remover
+            ❌
           </button>
 
         </td>
@@ -98,20 +141,24 @@ function renderizarTabela() {
 // CALCULAR
 function calcularFAT() {
 
-  const resultado = document.getElementById("resultado");
+  const resultado =
+    document.getElementById("resultado");
 
+  // SEM ATIVIDADES
   if (atividades.length === 0) {
 
     resultado.innerHTML = `
+
       <p class="text-red-500 font-semibold">
         Adicione ao menos uma atividade.
       </p>
+
     `;
 
     return;
   }
 
-  // TOTAL DE HORAS
+  // TOTAL HORAS
   const totalHoras = atividades.reduce((total, item) => {
 
     return total + item.horas;
@@ -121,7 +168,8 @@ function calcularFAT() {
   // VALIDA 24H
   if (totalHoras < 24) {
 
-    const restante = (24 - totalHoras).toFixed(1);
+    const restante =
+      (24 - totalHoras).toFixed(1);
 
     resultado.innerHTML = `
 
@@ -142,6 +190,7 @@ function calcularFAT() {
     return;
   }
 
+  // CÁLCULO
   let total = 0;
 
   atividades.forEach(item => {
@@ -152,9 +201,13 @@ function calcularFAT() {
 
   const fat = total / 24;
 
-  // SALVA NO CACHE
-  localStorage.setItem("fat", fat.toFixed(2));
+  // SALVA CACHE
+  localStorage.setItem(
+    "fat",
+    fat.toFixed(2)
+  );
 
+  // RESULTADO
   resultado.innerHTML = `
 
     <div class="w-full">

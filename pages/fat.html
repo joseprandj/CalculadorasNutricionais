@@ -69,8 +69,8 @@
                         <thead class="bg-yellow-500 text-white">
 
                             <tr>
-                                <th class="p-4 text-left">Intensidade</th>
-                                <th class="p-4 text-left">Fator</th>
+                                <th class="p-3 text-left text-sm md:text-base">Intensidade</th>
+                                <th class="p-3 text-left text-sm md:text-base">Fator</th>
                             </tr>
 
                         </thead>
@@ -191,15 +191,25 @@
                         <thead class="bg-slate-800 text-white">
 
                             <tr>
-                                <th class="p-4 text-left">Atividade</th>
-                                <th class="p-4 text-left">Horas</th>
-                                <th class="p-4 text-left">Intensidade</th>
-                                <th class="p-4 text-center">Ação</th>
+                                <th class="p-3 text-left text-sm md:text-base">Atividade</th>
+                                <th class="p-3 text-left text-sm md:text-base">Horas</th>
+                                <th class="p-3 text-left text-sm md:text-base">Intensidade</th>
+                                <th id="colunaAcao" class="hidden p-3 w-16"></th>
                             </tr>
 
                         </thead>
 
                         <tbody id="tabelaAtividades" class="divide-y divide-slate-200">
+
+                            <tr id="emptyMessage">
+
+                                <td colspan="4" class="p-6 text-center text-slate-400">
+
+                                    Nenhuma atividade adicionada.
+
+                                </td>
+
+                            </tr>
 
                         </tbody>
 
